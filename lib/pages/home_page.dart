@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/data/data.dart';
+import 'package:navigation/pages/page_details.dart';
 import 'package:navigation/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,12 +64,27 @@ class HomePage extends StatelessWidget {
                 height: 15,
               ),
               ListView.builder(
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.only(top: 15, bottom: 15),
-                  physics: const ScrollPhysics(),
-                  itemCount: courses.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 15, bottom: 15),
+                physics: const ScrollPhysics(),
+                itemCount: courses.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      // Navigator.of(context).pop();
+                      // Navigator.of(context).pushNamed();
+                      // Navigator.of(context).push();
+                      // Navigator.of(context).pushReplacement();
+                      // Navigator.of(context).pushReplacementNamed();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => PageDetails(
+                            courses: courses[index],
+                          ),
+                        ),
+                      );
+                    },
+                    child: Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,8 +117,10 @@ class HomePage extends StatelessWidget {
                           )
                         ],
                       ),
-                    );
-                  })
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),

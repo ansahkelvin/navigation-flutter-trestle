@@ -9,6 +9,21 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Login Page"),
       ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  //Navigate to another screen
+                },
+                child: const Text("Go to cart page"),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
